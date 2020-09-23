@@ -28,6 +28,14 @@ fun main(args: Array<String>) {
         val input = readln() ?: exitProcess(84);
         var str = tokener.seperate_word(input);
         var cmd = tokener.check_key(tokener.key_cmd() ,str);
-        println(cmd);
+        closer(cmd);
     }
 }
+
+ fun closer(str: String) {
+
+     if(str == "exit") {
+
+         exitProcess(0)
+     }
+ }

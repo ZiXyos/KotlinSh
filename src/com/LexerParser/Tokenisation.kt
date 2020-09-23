@@ -1,6 +1,9 @@
 package com.LexerParser
 
+import kotlin.system.exitProcess
+
 public class Tokenisation() {
+
     companion object cmdCheck {
 
         public fun seperate_word(str: String): List<String> {
@@ -11,20 +14,24 @@ public class Tokenisation() {
 
         public fun key_cmd(): List<String> {
 
-            var cmdList: List<String> = mutableListOf("ls", "cd", "echo");
+            var cmdList: List<String> = mutableListOf("cd", "ls", "echo", "exit");
             return cmdList;
         }
 
         public fun check_key(list_cmd: List<String>, strList: List<String>): String {
 
             var i: Int = 0;
+            var j: Int = 0;
             var str: String = "";
 
-            for (str in strList) {
+            for (i in strList.indices) {
 
-                if (str == list_cmd.elementAt(i)) return  (str);
+                if (list_cmd.contains(strList[i])) {
+
+                    return (strList[i])
+                }
             }
-            return (str);
+            return ("command Not Found");
         }
     }
 }
